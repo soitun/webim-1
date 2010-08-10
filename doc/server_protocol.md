@@ -1,7 +1,7 @@
 NextIM Server Protocol
 ======================
 
-NextIM服务端接口协议为web浏览器和web服务器之间的通信协议，数据格式使用json。
+NextIM服务端接口协议为web浏览器和web服务器之间的通信协议，HTTP请求返回数据格式使用[json][json]格式或者字符串`ok`。
 
 
 ##常用数据
@@ -396,3 +396,8 @@ msg\_auto\_pop		|bool	|false	|新消息时自动弹出聊天窗口
 
         ok
 
+
+[json]: http://json.org/
+[nextim_js]: http://github.com/nextim/nextim-js
+[nextim_ui]: http://github.com/nextim/nextim-ui
+[nextim_server]: http://github.com/nextim/nextim-server
