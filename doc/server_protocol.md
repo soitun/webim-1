@@ -107,7 +107,7 @@ default\_pic\_url	|string	|false	|联系人头像默认地址，当头像加载�
 show			|string	|false	|联系人在线状态信息['available', 'away', 'chat', 'dnd', 'busy', 'invisible']
 status			|string	|false	|联系人状态
 status\_time		|string	|false	|联系人状态时间
-history			|object	|false	|联系人和当前用户聊天记录，如果没有则会新建连接从webim/histories读取
+history			|object	|false	|联系人和当前用户聊天记录，如果没有则会新建连接从webim/history读取
 
 
 ###群组成员信息roomMemberInfo
@@ -155,7 +155,7 @@ all\_count		|int 	|true	|群组所有用户数
 count			|int 	|true	|群组在线用户数
 blocked			|bool	|true	|是否被当前用户屏蔽
 members			|object	|false	|群组在线成员，如果没有会新建连接从webim/members读取
-history			|object	|false	|群组聊天记录，如果没有则会新建连接从webim/histories读取
+history			|object	|false	|群组聊天记录，如果没有则会新建连接从webim/history读取
 
 ###联系人列表buddies
 
@@ -288,22 +288,19 @@ new\_messages		|object	|true	|未收到的离线消息
 
 	&connection
         {
-                ids:"1,2"
+                id: "1"
         }
 
 ####返回参数
 
-        {
-        	1: &members,
-        	2: &members
-	}
+        	&members
 
-###获得历史记录 GET webim/histories
+###获得历史记录 GET webim/history
 
 ####请求参数
 
         {
-                ids:"1,2",
+                id: "1",
 		type: "unicast"
         }
 
@@ -315,10 +312,7 @@ type			|string	|true	|取得历史记录类型，unicast: 联系人, multicast: 
 
 ####返回参数
 
-        {
-        	1: &history,
-        	2: &history
-	}
+        	&history
 
 
 ###发送消息 POST webim/message
