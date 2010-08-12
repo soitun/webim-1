@@ -28,7 +28,6 @@ server			|string	|true	|im服务器地址
 
 	{
 		"id": 1,
-	        "name": "jack",
 	        "nick": "Jack",
 	        "pic_url": "http://t1.qlogo.cn/mbloghead/c39e95b85b1b6bcd6f84/50",
 	        "default_pic_url": "http://mat1.gtimg.com/www/mb/images/head_50.jpg",
@@ -42,7 +41,6 @@ server			|string	|true	|im服务器地址
 参数名			|类型	|必需	|描述
 ------------------------|-------|-------|----
 id			|int	|true	|用户唯一ID
-name			|string	|true	|用户唯一用户名，多为用户登录帐号，如果没有，可直接用id
 nick			|string	|true	|用户昵称或姓名
 pic\_url		|string	|false	|用户头像地址
 default\_pic\_url	|string	|false	|用户头像默认地址，当头像加载失败时显示
@@ -82,7 +80,6 @@ timestamp		|int	|true	|消息发送时间，时间为javascript时间，php中�
 
 	{
 		"id": 2,
-	        "name": "susan",
 	        "nick": "Susan",
 	        "group": "friend", 
 	        "pic_url": "http://t1.qlogo.cn/mbloghead/a061e4ecb5b1ecd6ccee/50",
@@ -98,7 +95,6 @@ timestamp		|int	|true	|消息发送时间，时间为javascript时间，php中�
 参数名			|类型	|必需	|描述
 ------------------------|-------|-------|------------
 id			|int	|true	|联系人唯一ID
-name			|string	|true	|联系人唯一用户名，多为用户登录帐号，如果没有，可直接用id
 nick			|string	|true	|联系人昵称或姓名
 group			|string	|true	|联系人所属分组
 presence		|string	|true	|联系人是在线离线["online", "offline"]
@@ -116,7 +112,6 @@ history			|object	|false	|联系人和当前用户聊天记录，如果没有则
 
 	{
 	        "id": 1,
-	        "name": "jack",
 	        "nick": "Jack"
 	}
 
@@ -132,7 +127,6 @@ history			|object	|false	|联系人和当前用户聊天记录，如果没有则
 
 	{
 		"id": "2",
-	        "name": "jack",
 	        "nick": "Jack",
 	        "pic_url": "http://www.uchome.com/uc/ucenter/avatar.php?uid=2&size=small&type=virtual",
 		"default_pic_url": "",
@@ -147,7 +141,6 @@ history			|object	|false	|联系人和当前用户聊天记录，如果没有则
 参数名			|类型	|必需	|描述
 ------------------------|-------|-------|------------
 id			|int 	|true	|群组唯一ID
-name			|string	|true	|群组唯一名称，可直接用id组成
 nick			|string	|true	|群组名称
 pic\_url		|string	|false	|群组图片地址
 default\_pic\_url	|string	|false	|群组图片默认地址，当图片加载失败时显示
@@ -324,7 +317,6 @@ type			|string	|true	|取得历史记录类型，unicast: 联系人, multicast: 
                 type: "unicast", 
                 offline: false, 
                 to: "2",
-                to_name: "susan",
                 body: "sdf",
                 style: "color:red"
         }
@@ -334,7 +326,6 @@ type			|string	|true	|取得历史记录类型，unicast: 联系人, multicast: 
 type			|string	|true	|记录类型，unicast: 一对一, multicast: 多对多群组, broadcast: 全站广播
 offline			|bool	|true	|是否离线消息
 to			|int	|true	|接收消息用户ID
-to\_name		|string	|true	|接收消息用户name
 style			|string	|false	|消息css样式
 body			|string	|true	|消息内容
 
