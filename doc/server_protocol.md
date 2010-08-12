@@ -153,7 +153,7 @@ pic\_url		|string	|false	|群组图片地址
 default\_pic\_url	|string	|false	|群组图片默认地址，当图片加载失败时显示
 all\_count		|int 	|true	|群组所有用户数
 count			|int 	|true	|群组在线用户数
-blocked			|bool	|true	|是否被当前用户屏蔽
+blocked			|bool	|false	|是否被当前用户屏蔽，此字段存在settings的blocked\_rooms中
 members			|object	|false	|群组在线成员，如果没有会新建连接从webim/members读取
 history			|object	|false	|群组聊天记录，如果没有则会新建连接从webim/history读取
 
@@ -323,7 +323,8 @@ type			|string	|true	|取得历史记录类型，unicast: 联系人, multicast: 
         {
                 type: "unicast", 
                 offline: false, 
-                to: "11",
+                to: "2",
+                to_name: "susan",
                 body: "sdf",
                 style: "color:red"
         }
@@ -333,6 +334,7 @@ type			|string	|true	|取得历史记录类型，unicast: 联系人, multicast: 
 type			|string	|true	|记录类型，unicast: 一对一, multicast: 多对多群组, broadcast: 全站广播
 offline			|bool	|true	|是否离线消息
 to			|int	|true	|接收消息用户ID
+to\_name		|string	|true	|接收消息用户name
 style			|string	|false	|消息css样式
 body			|string	|true	|消息内容
 
@@ -372,19 +374,16 @@ body			|string	|true	|消息内容
 
 ####请求参数
 
-        {
-		play_sound: true,
-		buddy_sticky: true,
-		minimize_layout: false,
-		msg_auto_pop: true
-        }
+	data: "{play_sound: true,buddy_sticky: true,minimize_layout: false,msg_auto_pop: true}"
 
 参数名			|类型	|必需	|描述
 ------------------------|-------|-------|------------
+data			|string	|true	|所有参数的JSON字符串(用户数据库存储)
 play\_sound		|bool	|false	|是否播放提示音
 buddy\_sticky		|bool	|false	|保持聊天窗口始终打开
 minimize\_layout	|bool	|false	|收缩工具条
 msg\_auto\_pop		|bool	|false	|新消息时自动弹出聊天窗口
+blocked\_rooms		|array	|false	|被屏蔽的群组
 
 ####返回参数
 
