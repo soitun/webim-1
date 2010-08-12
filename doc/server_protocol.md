@@ -172,14 +172,12 @@ history			|object	|false	|群组聊天记录，如果没有则会新建连接从
         {
 		buddy_ids: "1,34,34",
 		room_ids: "1,34,34",
-		stranger_ids: "34,23"
         }
 
 参数名			|类型	|必需	|描述
 ------------------------|-------|-------|------------
 buddy\_ids		|string |false	|显示在tabs中的联系人列表，需要online后取得联系人信息和聊天记录
 room\_ids		|string	|false	|显示在tabs中的群组列表，需要online后取得联系人信息和聊天记录
-stranger\_ids		|string	|false	|当前网页显示的未知联系人，需要判断是否在线
 
 ####返回参数
 
