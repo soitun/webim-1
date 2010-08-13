@@ -32,8 +32,8 @@ server			|string	|true	|im服务器地址
 	        "pic_url": "http://t1.qlogo.cn/mbloghead/c39e95b85b1b6bcd6f84/50",
 	        "default_pic_url": "http://mat1.gtimg.com/www/mb/images/head_50.jpg",
 	        "url": "space.php?uid=2",
-	        "show": "available", 
-	        "status": "I'm free.",
+	        "show": "I'm free.", 
+	        "status": "available",
 	        "status_time": "10:55"
 	}
 
@@ -44,8 +44,8 @@ id			|int	|true	|用户唯一ID
 nick			|string	|true	|用户昵称或姓名
 pic\_url		|string	|false	|用户头像地址
 default\_pic\_url	|string	|false	|用户头像默认地址，当头像加载失败时显示
-show			|string	|false	|用户在线状态信息['available', 'away', 'chat', 'dnd', 'busy', 'invisible']
-status			|string	|false	|用户状态
+show			|string	|false	|用户状态显示信息
+status			|string	|false	|用户状态['available', 'away', 'chat', 'dnd', 'busy', 'invisible']
 status\_time		|string	|false	|用户状态时间
 
 ###聊天记录logItem
@@ -86,8 +86,8 @@ timestamp		|int	|true	|消息发送时间，时间为javascript时间，php中�
 	        "default_pic_url": "http://mat1.gtimg.com/www/mb/images/head_50.jpg",
 	        "url": "space.php?uid=2",
 	        "presence": "online",
-	        "show": "available", 
-	        "status": "I'm free.",
+	        "show": "I'm buzy.", 
+	        "status": "buzy",
 	        "status_time": "10:55",
 		"history": &history
 	}
@@ -100,8 +100,8 @@ group			|string	|true	|联系人所属分组
 presence		|string	|true	|联系人是在线离线["online", "offline"]
 pic\_url		|string	|false	|联系人头像地址
 default\_pic\_url	|string	|false	|联系人头像默认地址，当头像加载失败时显示
-show			|string	|false	|联系人在线状态信息['available', 'away', 'chat', 'dnd', 'busy', 'invisible']
-status			|string	|false	|联系人状态
+show			|string	|false	|联系人状态显示信息
+status			|string	|false	|联系人状态['available', 'away', 'chat', 'dnd', 'busy', 'invisible']
 status\_time		|string	|false	|联系人状态时间
 history			|object	|false	|联系人和当前用户聊天记录，如果没有则会新建连接从webim/history读取
 
