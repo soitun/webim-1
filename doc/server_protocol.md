@@ -4,7 +4,8 @@ NextIM Server Protocol
 NextIM服务端接口协议为web浏览器和web服务器之间的通信协议，HTTP请求返回数据格式使用[json][json]格式或者字符串`ok`。
 
 
-##常用数据
+常用数据
+-----------------------
 
 ###连接信息connection
 
@@ -163,7 +164,8 @@ history			|object	|false	|群组聊天记录，如果没有则会新建连接从
 	[&roomInfo]
 
 
-##接口说明
+接口说明
+--------------------------
 
 ###上线登录 POST webim/online
 
@@ -377,6 +379,29 @@ blocked\_rooms		|array	|false	|被屏蔽的群组
 ####返回参数
 
         ok
+
+扩展接口
+--------------------
+
+###站内通知 GET webim/notification
+
+####请求参数
+
+无
+
+####返回参数
+
+	[{"text":"Susan wants to be friends with you.","link":"http://test.com/s?id=5"}]
+
+###陌生人
+
+在 **POST webim/online** 中
+
+添加参数
+
+	{stranger_ids: "1,2,5"}
+
+无添加返回
 
 
 [json]: http://json.org/
