@@ -36,6 +36,17 @@ server			|string	|true	|im服务器地址
 	        "status": "available",
 	        "status_time": "10:55"
 	}
+实际返回数据：
+{"buddy_online_ids":"6",
+ "clientnum":"0",
+ "server_time":1281928317007.7,
+ "user":{"id":"admin","name":"admin","pic_url":"http:\/\/localhost\/ucenter_for_uchome\/data\/avatar\/000\/00\/00\/01_avatar_small.jpg","status":"","presence":"online","status_time":"","url":"space.php?uid=1"},
+ "connection":{"domain":"monit.cn","ticket":"caa9f0d8a0cfe27996ce|admin","server":"http:\/\/localhost:8000"},
+ "new_messages":[],
+ "buddies":[],
+ "rooms":{"1000001":{"id":"1000001","name":"rails\u5c0f\u7ec4","pic_url":"image\/nologo.jpg","status":"","status_time":"","all_count":"3","url":"space.php?do=mtag&tagid=1","blocked":true,"count":"2"}},
+ "histories":[]
+}
 
 
 参数名			|类型	|必需	|描述
