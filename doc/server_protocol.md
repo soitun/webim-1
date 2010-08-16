@@ -172,7 +172,7 @@ history			|object	|false	|群组聊天记录，如果没有则会新建连接从
 
         {
 		buddy_ids: "1,34,34",
-		room_ids: "1,34,34",
+		room_ids: "1,34,34"
         }
 
 参数名			|类型	|必需	|描述
