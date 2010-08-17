@@ -33,8 +33,8 @@ server			|string	|true	|im服务器地址
 	        "pic_url": "http://t1.qlogo.cn/mbloghead/c39e95b85b1b6bcd6f84/50",
 	        "default_pic_url": "http://mat1.gtimg.com/www/mb/images/head_50.jpg",
 	        "url": "space.php?uid=2",
-	        "show": "I'm free.", 
-	        "status": "available",
+	        "status": "I'm free.", 
+	        "show": "available",
 	        "status_time": "10:55"
 	}
 
@@ -44,8 +44,8 @@ id			|int	|true	|用户唯一ID
 nick			|string	|true	|用户昵称或姓名
 pic\_url		|string	|false	|用户头像地址
 default\_pic\_url	|string	|false	|用户头像默认地址，当头像加载失败时显示
-show			|string	|false	|用户状态显示信息
-status			|string	|false	|用户状态['available', 'away', 'chat', 'dnd', 'busy', 'invisible']
+status			|string	|false	|用户状态显示信息
+show			|string	|false	|用户状态['available', 'away', 'chat', 'dnd', 'invisible']
 status\_time		|string	|false	|用户状态时间
 
 ###聊天记录logItem
@@ -86,8 +86,8 @@ timestamp		|int	|true	|消息发送时间，时间为javascript时间，php中�
 	        "default_pic_url": "http://mat1.gtimg.com/www/mb/images/head_50.jpg",
 	        "url": "space.php?uid=2",
 	        "presence": "online",
-	        "show": "I'm buzy.", 
-	        "status": "buzy",
+	        "status": "I'm buzy.", 
+	        "show": "buzy",
 	        "status_time": "10:55",
 		"history": &history
 	}
@@ -100,8 +100,8 @@ group			|string	|true	|联系人所属分组
 presence		|string	|true	|联系人是在线离线["online", "offline"]
 pic\_url		|string	|false	|联系人头像地址
 default\_pic\_url	|string	|false	|联系人头像默认地址，当头像加载失败时显示
-show			|string	|false	|联系人状态显示信息
-status			|string	|false	|联系人状态['available', 'away', 'chat', 'dnd', 'busy', 'invisible']
+status			|string	|false	|联系人状态显示信息
+show			|string	|false	|联系人状态['available', 'away', 'chat', 'dnd', 'invisible']
 status\_time		|string	|false	|联系人状态时间
 history			|object	|false	|联系人和当前用户聊天记录，如果没有则会新建连接从webim/history读取
 
@@ -171,12 +171,14 @@ history			|object	|false	|群组聊天记录，如果没有则会新建连接从
 ####请求参数
 
         {
+		show: "away",
 		buddy_ids: "1,34,34",
 		room_ids: "1,34,34"
         }
 
 参数名			|类型	|必需	|描述
 ------------------------|-------|-------|------------
+show			|string |false	|用户状态
 buddy\_ids		|string |false	|显示在tabs中的联系人列表，需要online后取得联系人信息和聊天记录
 room\_ids		|string	|false	|显示在tabs中的群组列表，需要online后取得联系人信息和聊天记录
 
@@ -345,7 +347,23 @@ body			|string	|true	|消息内容
 
         ok
 
-###发送状态 POST webim/status
+
+###发送现场状态 POST webim/presence
+
+####请求参数
+
+	&connection
+        {
+                show: "away",
+                status: "I'm not here right now."
+        }
+
+####返回参数
+
+        ok
+
+
+###发送聊天状态 POST webim/status
 
 ####请求参数
 
@@ -401,6 +419,13 @@ blocked\_rooms		|array	|false	|被屏蔽的群组
 	{stranger_ids: "1,2,5"}
 
 无添加返回
+
+
+参考
+--------------------
+
+*	[rfc3921](http://xmpp.org/rfcs/rfc3921.html)
+
 
 
 [json]: http://json.org/
