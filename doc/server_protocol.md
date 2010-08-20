@@ -56,6 +56,7 @@ status\_time		|string	|false	|用户状态时间
 	        "type": "unicast",
 	        "to": 2,
 	        "from": 1,
+		"nick": "Jack",
 	        "style": "color:#bbb;",
 	        "body": "Hello.",
 	        "timestamp": 1246883572400
@@ -66,6 +67,7 @@ status\_time		|string	|false	|用户状态时间
 type			|string	|true	|记录类型，unicast: 一对一, multicast: 多对多群组, broadcast: 全站广播
 to			|int	|true	|接收消息用户ID
 from			|int	|true	|发送消息用户ID
+nick			|string	|true	|发送消息用户名称
 style			|string	|false	|消息css样式
 body			|string	|true	|消息内容
 timestamp		|int	|true	|消息发送时间，时间为javascript时间，php中使用microtime(true)\*1000
