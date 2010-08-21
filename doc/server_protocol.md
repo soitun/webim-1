@@ -98,8 +98,9 @@ timestamp		|int	|true	|消息发送时间，时间为javascript时间，php中�
 ------------------------|-------|-------|------------
 id			|int	|true	|联系人唯一ID
 nick			|string	|true	|联系人昵称或姓名
-group			|string	|true	|联系人所属分组
 presence		|string	|true	|联系人是在线离线["online", "offline"]
+need\_reload		|bool	|false	|是否需要重载好友信息，返回信息不完整时使用，默认false
+group			|string	|false	|联系人所属分组
 pic\_url		|string	|false	|联系人头像地址
 default\_pic\_url	|string	|false	|联系人头像默认地址，当头像加载失败时显示
 status			|string	|false	|联系人状态显示信息
@@ -190,7 +191,6 @@ room\_ids		|string	|false	|显示在tabs中的群组列表，需要online后取�
                 server_time: 1281443447248, 
                 user: &userInfo,
                 connection: &connection,
-                online_buddy_ids: "54,22",
                 buddies: &buddies, 
                 rooms: &rooms, 
                 new_messages: []
@@ -201,7 +201,6 @@ room\_ids		|string	|false	|显示在tabs中的群组列表，需要online后取�
 server\_time		|int	|true	|服务器当前时间，解决本地时差，返回js时间戳。microtime(true)\*1000
 user			|object	|true	|当前用户信息
 connection		|object	|true	|当前用户连接信息
-online\_buddy\_ids	|string	|true	|在线好友列表，逗号分隔
 buddies			|object	|true	|根据请求参数中buddy\_ids和离线消息取得联系人信息
 rooms			|object	|true	|所有群组列表
 new\_messages		|object	|true	|未收到的离线消息
