@@ -4,3 +4,9 @@
 [submodule "uchome"]
 	path = uchome
 	url = git://github.com/webim/webim-for-uchome.git
+[submodule "discuzX"]
+	path = discuzX
+	url = git://github.com/webim/webim-for-discuzX.git
+[submodule "php"]
+	path = php
+	url = git://github.com/webim/webim-php.git
