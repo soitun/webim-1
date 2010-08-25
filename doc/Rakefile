@@ -1,0 +1,74 @@
+#
+# Convert docs markup to readable style.
+#
+# Author: Hidden
+# Date: Wed Aug 25 11:22:47 CST 2010
+#
+# For markdown:
+#
+# 	gem install rdiscount
+# 	gem install github-markup
+#
+# HTML To PDF
+#
+# 	http://rubycocoa.sourceforge.net/GettingStarted
+# 	http://plessl.github.com/wkpdf/
+#
+# TODO: Convert docs to pdf.
+# wkpdf --source server_protocol.html --output s.pdf
+#
+
+require 'rubygems'
+require 'github/markup'
+
+DOC_ROOT = File.dirname(__FILE__)
+DOC_FILES = Dir[File.join(DOC_ROOT, "*.md")]
+HTML_DIR = File.join(DOC_ROOT, "html")
+HTML_FILES = DOC_FILES.collect{|f| File.join(HTML_DIR, File.basename(f, ".md") + ".html")}
+
+HTML_HEADER = %Q{
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <link href="wikistyle.css" media="screen" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div class="wikistyle">
+}
+HTML_FOOTER = %Q{
+		</div>
+	</body>
+</html>
+}
+
+task :default => "all"
+
+task :all => :html do
+	cp File.join(DOC_ROOT, 'wikistyle.css'), File.join(HTML_DIR, 'wikistyle.css')
+	puts "Convert complete."
+end
+
+task :html => HTML_FILES do
+	puts "Convert docs markup to html"
+end
+
+task :clean do
+	puts "Removing Distribution directory: #{HTML_DIR}..." 
+	rm_rf HTML_DIR
+end
+
+directory HTML_DIR
+
+HTML_FILES.each do |f|
+	file f => HTML_DIR do
+		puts "	" + f;
+		source = File.join(DOC_ROOT, File.basename(f, ".html") + ".md")
+		html = GitHub::Markup.render(source, File.read(source))
+		html = HTML_HEADER + html + HTML_FOOTER
+		File.open(f, 'w') do |f|
+			f.write html
+		end
+	end
+end
