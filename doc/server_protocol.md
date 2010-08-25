@@ -326,7 +326,7 @@ type			|string	|true	|取得历史记录类型，unicast: 联系人, multicast: 
 参数名			|类型	|必需	|描述
 ------------------------|-------|-------|------------
 type			|string	|true	|记录类型，unicast: 一对一, multicast: 多对多群组, broadcast: 全站广播
-offline			|bool	|true	|是否离线消息
+offline			|bool	|false	|是否离线消息，默认false
 to			|string	|true	|接收消息用户ID
 style			|string	|false	|消息css样式
 body			|string	|true	|消息内容
