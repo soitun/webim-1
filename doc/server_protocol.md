@@ -30,8 +30,8 @@ server			|string	|true	|im服务器地址
 	{
 		"id": 'jack',
 	        "nick": "Jack",
-	        "pic_url": "http://t1.qlogo.cn/mbloghead/c39e95b85b1b6bcd6f84/50",
-	        "default_pic_url": "http://mat1.gtimg.com/www/mb/images/head_50.jpg",
+	        "pic_url": "jack.jpg",
+	        "default_pic_url": "default.jpg",
 	        "url": "space.php?uid=2",
 	        "status": "I'm free.", 
 	        "show": "available",
@@ -84,8 +84,8 @@ timestamp		|int	|true	|消息发送时间，时间为javascript时间，php中�
 		"id": 'susan',
 	        "nick": "Susan",
 	        "group": "friend", 
-	        "pic_url": "http://t1.qlogo.cn/mbloghead/a061e4ecb5b1ecd6ccee/50",
-	        "default_pic_url": "http://mat1.gtimg.com/www/mb/images/head_50.jpg",
+	        "pic_url": "susan.jpg",
+	        "default_pic_url": "default.jpg",
 	        "url": "space.php?uid=2",
 	        "presence": "online",
 	        "status": "I'm buzy.", 
@@ -131,7 +131,7 @@ history			|object	|false	|联系人和当前用户聊天记录，如果没有则
 	{
 		"id": "room1",
 	        "nick": "Free space",
-	        "pic_url": "http://www.uchome.com/uc/ucenter/avatar.php?uid=2&size=small&type=virtual",
+	        "pic_url": "room1.jpg",
 		"default_pic_url": "",
 	        "url": "group.php?uid=2",
 		"all_count": 10,
@@ -383,7 +383,7 @@ body			|string	|true	|消息内容
 
 ####请求参数
 
-	data: "{play_sound: true,buddy_sticky: true,minimize_layout: false,msg_auto_pop: true}"
+	data: "{play_sound: true,buddy_sticky: true}"
 
 参数名			|类型	|必需	|描述
 ------------------------|-------|-------|------------
@@ -409,7 +409,8 @@ blocked\_rooms		|array	|false	|被屏蔽的群组
 
 ####返回参数
 
-	[{"text":"Susan wants to be friends with you.","link":"http://test.com/s?id=5"}]
+	[{"text":"Susan wants to be friends with you.",
+		"link":"http://test.com/s?id=5"}]
 
 ###陌生人
 
