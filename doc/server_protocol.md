@@ -28,7 +28,7 @@ server			|string	|true	|im服务器地址
 ####示例                         
 
 	{
-		"id": 1,
+		"id": 'jack',
 	        "nick": "Jack",
 	        "pic_url": "http://t1.qlogo.cn/mbloghead/c39e95b85b1b6bcd6f84/50",
 	        "default_pic_url": "http://mat1.gtimg.com/www/mb/images/head_50.jpg",
@@ -40,7 +40,7 @@ server			|string	|true	|im服务器地址
 
 参数名			|类型	|必需	|描述
 ------------------------|-------|-------|----
-id			|int	|true	|用户唯一ID
+id			|string	|true	|用户唯一ID
 nick			|string	|true	|用户昵称或姓名
 pic\_url		|string	|false	|用户头像地址
 default\_pic\_url	|string	|false	|用户头像默认地址，当头像加载失败时显示
@@ -81,7 +81,7 @@ timestamp		|int	|true	|消息发送时间，时间为javascript时间，php中�
 ###联系人信息buddyInfo
 
 	{
-		"id": 2,
+		"id": 'susan',
 	        "nick": "Susan",
 	        "group": "friend", 
 	        "pic_url": "http://t1.qlogo.cn/mbloghead/a061e4ecb5b1ecd6ccee/50",
@@ -96,7 +96,7 @@ timestamp		|int	|true	|消息发送时间，时间为javascript时间，php中�
 
 参数名			|类型	|必需	|描述
 ------------------------|-------|-------|------------
-id			|int	|true	|联系人唯一ID
+id			|string	|true	|联系人唯一ID
 nick			|string	|true	|联系人昵称或姓名
 presence		|string	|true	|联系人是在线离线["online", "offline"]
 need\_reload		|bool	|false	|是否需要重载好友信息，返回信息不完整时使用，默认false
@@ -114,7 +114,7 @@ history			|object	|false	|联系人和当前用户聊天记录，如果没有则
 ####示例
 
 	{
-	        "id": 1,
+	        "id": 'jack',
 	        "nick": "Jack"
 	}
 
@@ -129,8 +129,8 @@ history			|object	|false	|联系人和当前用户聊天记录，如果没有则
 ####示例
 
 	{
-		"id": "2",
-	        "nick": "Jack",
+		"id": "room1",
+	        "nick": "Free space",
 	        "pic_url": "http://www.uchome.com/uc/ucenter/avatar.php?uid=2&size=small&type=virtual",
 		"default_pic_url": "",
 	        "url": "group.php?uid=2",
@@ -143,7 +143,7 @@ history			|object	|false	|联系人和当前用户聊天记录，如果没有则
 
 参数名			|类型	|必需	|描述
 ------------------------|-------|-------|------------
-id			|int 	|true	|群组唯一ID
+id			|string |true	|群组唯一ID
 nick			|string	|true	|群组名称
 pic\_url		|string	|false	|群组图片地址
 default\_pic\_url	|string	|false	|群组图片默认地址，当图片加载失败时显示
@@ -231,7 +231,7 @@ new\_messages		|object	|true	|未收到的离线消息
 ####请求参数
 
         {
-                ids:"1,2"
+                ids:"susan,josh"
         }
 
 ####返回参数
@@ -244,7 +244,7 @@ new\_messages		|object	|true	|未收到的离线消息
 ####请求参数
 
         {
-                ids:"1,2"
+                ids:"room1,room2"
         }
 
 ####返回参数
@@ -257,7 +257,7 @@ new\_messages		|object	|true	|未收到的离线消息
 
 	&connection
 	{
-                id: "1"
+                id: "room1"
         }
 
 ####返回参数
@@ -270,7 +270,7 @@ new\_messages		|object	|true	|未收到的离线消息
 
 	&connection
         {
-                id:"1"
+                id:"room1"
         }
 
 ####返回参数
@@ -283,7 +283,7 @@ new\_messages		|object	|true	|未收到的离线消息
 
 	&connection
         {
-                id: "1"
+                id: "room1"
         }
 
 ####返回参数
@@ -295,7 +295,7 @@ new\_messages		|object	|true	|未收到的离线消息
 ####请求参数
 
         {
-                id: "1",
+                id: "susan",
 		type: "unicast"
         }
 
@@ -341,7 +341,7 @@ body			|string	|true	|消息内容
 ####请求参数
 
         {
-                id: 2
+                id: 'susan'
         }
 
 ####返回参数
