@@ -54,8 +54,8 @@ status\_time		|string	|false	|用户状态时间
 
 	{
 	        "type": "unicast",
-	        "to": 2,
-	        "from": 1,
+	        "to": "susan",
+	        "from": "jack",
 		"nick": "Jack",
 	        "style": "color:#bbb;",
 	        "body": "Hello.",
@@ -65,8 +65,8 @@ status\_time		|string	|false	|用户状态时间
 参数名			|类型	|必需	|描述
 ------------------------|-------|-------|------------
 type			|string	|true	|记录类型，unicast: 一对一, multicast: 多对多群组, broadcast: 全站广播
-to			|int	|true	|接收消息用户ID
-from			|int	|true	|发送消息用户ID
+to			|string	|true	|接收消息用户ID
+from			|string	|true	|发送消息用户ID
 nick			|string	|true	|发送消息用户名称
 style			|string	|false	|消息css样式
 body			|string	|true	|消息内容
@@ -318,7 +318,7 @@ type			|string	|true	|取得历史记录类型，unicast: 联系人, multicast: 
         {
                 type: "unicast", 
                 offline: false, 
-                to: "2",
+                to: "susan",
                 body: "sdf",
                 style: "color:red"
         }
@@ -327,7 +327,7 @@ type			|string	|true	|取得历史记录类型，unicast: 联系人, multicast: 
 ------------------------|-------|-------|------------
 type			|string	|true	|记录类型，unicast: 一对一, multicast: 多对多群组, broadcast: 全站广播
 offline			|bool	|true	|是否离线消息
-to			|int	|true	|接收消息用户ID
+to			|string	|true	|接收消息用户ID
 style			|string	|false	|消息css样式
 body			|string	|true	|消息内容
 
