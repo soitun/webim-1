@@ -98,7 +98,7 @@ timestamp		|int	|true	|消息发送时间，时间为javascript时间，php中�
 ------------------------|-------|-------|------------
 id			|string	|true	|联系人唯一ID
 nick			|string	|true	|联系人昵称或姓名
-presence		|string	|true	|联系人是在线离线["online", "offline"]
+presence		|string	|false	|联系人是在线离线["online", "offline"],默认offline
 need\_reload		|bool	|false	|是否需要重载好友信息，返回信息不完整时使用，默认false
 group			|string	|false	|联系人所属分组
 pic\_url		|string	|false	|联系人头像地址
