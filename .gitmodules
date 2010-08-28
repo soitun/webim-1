@@ -10,3 +10,6 @@
 [submodule "php"]
 	path = php
 	url = git://github.com/webim/webim-php.git
+[submodule "discuz"]
+	path = discuz
+	url = git://github.com/webim/webim-for-discuz.git
