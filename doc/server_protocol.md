@@ -99,13 +99,13 @@ timestamp		|int	|true	|消息发送时间，时间为javascript时间，php中�
 id			|string	|true	|联系人唯一ID
 nick			|string	|true	|联系人昵称或姓名
 presence		|string	|false	|联系人是在线离线["online", "offline"],默认offline
-need\_reload		|bool	|false	|是否需要重载好友信息，返回信息不完整时使用，默认false
 group			|string	|false	|联系人所属分组
 pic\_url		|string	|false	|联系人头像地址
 default\_pic\_url	|string	|false	|联系人头像默认地址，当头像加载失败时显示
 status			|string	|false	|联系人状态显示信息
 show			|string	|false	|联系人状态['available', 'away', 'chat', 'dnd', 'invisible']
 status\_time		|string	|false	|联系人状态时间
+incomplete		|bool	|false	|标志返回信息不完整，比如登录时未返回分组头像等信息，前端界面会在需要时重新读取，默认false
 history			|object	|false	|联系人和当前用户聊天记录，如果没有则会新建连接从webim/history读取
 
 
