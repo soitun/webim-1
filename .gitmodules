@@ -13,6 +13,6 @@
 [submodule "discuz"]
 	path = discuz
 	url = git://github.com/webim/webim-for-discuz.git
-[submodule "wordpress"]
-	path = wordpress
-	url = git://github.com/webim/webim-for-wordpress.git
+[submodule "phpwind"]
+	path = phpwind
+	url = git://github.com/webim/webim-for-phpwind.git
