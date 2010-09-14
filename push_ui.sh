@@ -11,3 +11,7 @@ git push
 cd ../discuzX
 git pull
 git push
+
+cd ../phpwind
+git pull
+git push
