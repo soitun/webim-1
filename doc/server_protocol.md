@@ -225,7 +225,7 @@ connection		|object	|true	|当前用户连接信息
 buddies			|object	|true	|根据请求参数中buddy\_ids和离线消息取得联系人信息
 rooms			|object	|true	|所有群组列表
 new\_messages		|object	|true	|未收到的离线消息
-error\_msg		|string	|false	|错误消息 Not Found, Not Authorized, IM Server Not Found, IM Server Not Authorized
+error\_msg		|string	|false	|错误消息 Not Found, Forbidden, Not Authorized, IM Server Not Found, IM Server Not Authorized
 
 
 ###离线 POST webim/offline
