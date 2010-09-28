@@ -3,6 +3,8 @@ NextIM Server Protocol
 
 NextIM服务端接口协议为web浏览器和web服务器之间的通信协议，HTTP请求返回数据格式使用[json][json]格式或者字符串`ok`。
 
+返回结果需要支持jsonp，使用jsonp时会加callback参数，使用jsonp时返回的http status类错误无效。
+
 
 常用数据
 -----------------------
@@ -13,7 +15,7 @@ NextIM服务端接口协议为web浏览器和web服务器之间的通信协议�
 	{
 	        "domain": "www.uchome.com",
 	        "ticket": "8633d182-b7fe-42a3-8466-0c4134cfebf2",
-	        "server": "http://ucim.webim20.cn:8000"
+	        "server": "http://ucim.webim20.cn:8000/packets"
 	}
 
 
@@ -176,7 +178,11 @@ history			|object	|false	|群组聊天记录，如果没有则会新建连接从
         {
 		show: "away",
 		buddy_ids: "1,34,34",
-		room_ids: "1,34,34"
+		room_ids: "1,34,34",
+		username: "jack",
+		password: "jack111",
+		question: "name",
+		answer: "jack"
         }
 
 参数名			|类型	|必需	|描述
@@ -184,10 +190,17 @@ history			|object	|false	|群组聊天记录，如果没有则会新建连接从
 show			|string |false	|用户状态
 buddy\_ids		|string |false	|显示在tabs中的联系人列表，需要online后取得联系人信息和聊天记录
 room\_ids		|string	|false	|显示在tabs中的群组列表，需要online后取得联系人信息和聊天记录
+username		|string |false	|登录用户名, 需要登录验证时使用
+password		|string |false	|登录密码, 需要登录验证时使用
+question		|string |false	|安全验证问题, 需要登录验证时使用
+answer			|string |false	|安全验证答案, 需要登录验证时使用
 
 ####返回参数
 
+成功
+
         {
+		success: true,
                 server_time: 1281443447248, 
                 user: &userInfo,
                 connection: &connection,
@@ -196,14 +209,23 @@ room\_ids		|string	|false	|显示在tabs中的群组列表，需要online后取�
                 new_messages: []
         }
 
+失败
+
+        {
+		success: false,
+		error_msg: 'Not Authorized'
+	}
+
 参数名			|类型	|必需	|描述
 ------------------------|-------|-------|------------
+success			|bool	|true	|上线成功或失败
 server\_time		|int	|true	|服务器当前时间，解决本地时差，返回js时间戳。microtime(true)\*1000
 user			|object	|true	|当前用户信息
 connection		|object	|true	|当前用户连接信息
 buddies			|object	|true	|根据请求参数中buddy\_ids和离线消息取得联系人信息
 rooms			|object	|true	|所有群组列表
 new\_messages		|object	|true	|未收到的离线消息
+error\_msg		|string	|false	|错误消息 Not Found, Not Authorized, IM Server Not Found, IM Server Not Authorized
 
 
 ###离线 POST webim/offline
